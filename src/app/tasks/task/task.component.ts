@@ -13,7 +13,11 @@ export class TaskComponent implements OnInit {
 
   onCreateTask(){
     console.log('The task name: ' + this.taskName);
+    this.tasksService.addTask(this.taskName);
+    this.taskName = '';
+    console.log(this.tasksService.tasks);
   }
+
   ngOnInit(): void {
   }
 
