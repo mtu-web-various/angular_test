@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TasksService } from './task.service';
 
 @Component({
   selector: 'app-task',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tasksService: TasksService) { }
 
+  onCreateTask(){
+    console.log("task is created")
+  }
   ngOnInit(): void {
   }
 
