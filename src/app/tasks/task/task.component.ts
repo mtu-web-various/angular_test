@@ -8,10 +8,11 @@ import { TasksService } from './task.service';
 })
 export class TaskComponent implements OnInit {
 
+  taskName = '';
   constructor(private tasksService: TasksService) { }
 
   onCreateTask(){
-    console.log("task is created")
+    console.log('The task name: ' + this.taskName);
   }
   ngOnInit(): void {
   }
