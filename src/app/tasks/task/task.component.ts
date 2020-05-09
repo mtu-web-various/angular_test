@@ -18,6 +18,10 @@ export class TaskComponent implements OnInit {
     console.log(this.tasksService.tasks);
   }
 
+  onAPICreateTask(){
+    this.tasksService.fetchFromApi();
+  }
+
   ngOnInit(): void {
   }
 

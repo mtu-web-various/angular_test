@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
+import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
@@ -21,6 +22,17 @@ export class TasksService{
   }
 
   fetchFromApi(){
-    
+
+    this.http.get<any>('https://www.googleapis.com/books/v1/volumes/zYw3sYFtz9kC')
+    .pipe(
+      map(resData => {
+        return resData.volumeInfo.title;
+      })
+    )
+    .subscribe(data => {
+      let dataList = this.tasks;
+      dataList.push(data);
+      this.tasksChanged.next(dataList);
+    });
   }
 }
